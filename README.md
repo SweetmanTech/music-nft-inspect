@@ -4,6 +4,8 @@ Decent's Audio Player allows you to easily create your own music player or strea
 
 This library works alongside the Decent [minting studio](https://hq.decent.xyz/) allows for DAOs and individuals to run their own decentralized record labels. Arbitrary music NFTs across a wide variety of contract implementations are supported.
 
+![DECENT_AUDIO_PLAYER](https://user-images.githubusercontent.com/23249402/201524220-eaa1c4d4-f24c-409d-9cee-bcaf40c66f0c.gif)
+
 ### Main components:
 
 - [AudioPlayer](https://github.com/SweetmanTech/audio-player/blob/main/src/audio-player/AudioPlayer.tsx)
