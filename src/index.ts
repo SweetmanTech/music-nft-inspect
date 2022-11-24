@@ -1,5 +1,5 @@
-import { evaluator as Catalog20220202Evaluator } from "./evaluators/catalog-20220222";
+import { evaluator as evaluateCatalog20220202 } from "./evaluators/catalog-20220222";
 
 export {
-  Catalog20220202Evaluator,
+  evaluateCatalog20220202,
 };

@@ -4,59 +4,41 @@ this package allows you to easily verify music nfts with decentralized infrastru
 
 This library works alongside the [metadata checker](https://hq.decent.xyz/) and allows for DAOs and individuals to compare nft metadata to the top music metadata standards including Catalog, Sound, Decent & more. Arbitrary music NFTs across a wide variety of contract implementations are supported.
 
-![DECENT_AUDIO_PLAYER](https://user-images.githubusercontent.com/23249402/201524220-eaa1c4d4-f24c-409d-9cee-bcaf40c66f0c.gif)
-
 ### Main components:
 
-- [AudioPlayer](https://github.com/SweetmanTech/audio-player/blob/main/src/audio-player/AudioPlayer.tsx)
-  - Used to render a Play / Pause button.
-  - `size` - size of Audio Player.
-  - `audioSrc` - src of audio.
-  - `callbackAfterPlay` - function to call after track begins playing.
-  - `active` - flag for pre-released tracks to be unplayable / disabled.
+- [evaluateCatalog20220202](https://gist.github.com/bretth18/df8358c840fa94946ec212f753e290dd)
 
 ### Quickstart
 
 1. Install package:
 
 ```bash
-yarn add decent-audio-player
+yarn add music-nft-inspect
 ```
 
-2. Add Providers:
+2. Evaluate:
 
 ```tsx
-import { useReducer } from "react";
-import {
-  DispatchPlayerContext,
-  PlayerContext,
-  playerInitialState,
-  playerReducer,
-} from "decent-audio-player";
+import { evaluateCatalog20220202 } from "music-nft-inspect";
 
-const App = ({ Component, pageProps }: AppProps) => {
-  const [state, dispatch] = useReducer(playerReducer, playerInitialState);
-  return (
-    <PlayerContext.Provider value={state}>
-      <DispatchPlayerContext.Provider value={dispatch}>
-        <Component {...pageProps} />
-      </DispatchPlayerContext.Provider>
-    </PlayerContext.Provider>
-  );
-};
+const metadata = {};
+const { missing, score, match, errors } = evaluateCatalog20220202(metadata);
 ```
 
-3. Render a simple Audio Player:
+### Contributing
 
-```tsx
-import { AudioPlayer } from "decent-audio-player";
+If you're from Sound, Catalog, Ooh La La, Spin Amp, Future Tape, Zora, etc, this section is for you.
 
-export const Page = () => (
-  <AudioPlayer
-    size={56}
-    audioSrc="https://nftstorage.link/ipfs/QmWNaSdhXq2WdusiBcVC2Ju5A1JJySRDVNrQMEBGcaazvC"
-    callbackAfterPlay={console.log}
-    active
-  />
-);
-```
+There are 2 types of modules you can contribute.
+
+#### Evaluators
+
+- evaluators are the method to validate metadata schemas.
+- examples found in `src/evaluators`
+
+#### Parsers
+
+- parse metadata into standard JSON from
+  - `parseContractJson`
+  - `parseTokenUriJson`
+- examples found in `src/parsers`
