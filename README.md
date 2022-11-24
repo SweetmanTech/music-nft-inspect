@@ -1,8 +1,8 @@
-# ⏯️ npm typescript + react template 🎧
+# ⏯️ music-nft-inspect 🎧
 
-this package allows you to easily create your node package with typescript and react with npm infrastructure.
+this package allows you to easily verify music nfts with decentralized infrastructure.
 
-This library works alongside the [metadata checker](https://hq.decent.xyz/) and allows for DAOs and individuals to run their own decentralized record labels. Arbitrary music NFTs across a wide variety of contract implementations are supported.
+This library works alongside the [metadata checker](https://hq.decent.xyz/) and allows for DAOs and individuals to compare nft metadata to the top music metadata standards including Catalog, Sound, Decent & more. Arbitrary music NFTs across a wide variety of contract implementations are supported.
 
 ![DECENT_AUDIO_PLAYER](https://user-images.githubusercontent.com/23249402/201524220-eaa1c4d4-f24c-409d-9cee-bcaf40c66f0c.gif)
 
