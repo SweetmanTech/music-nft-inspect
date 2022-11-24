@@ -1,8 +1,8 @@
-# ⏯️ decent-audio-player 🎧
+# ⏯️ npm typescript + react template 🎧
 
-Decent's Audio Player allows you to easily create your own music player or streaming player with Decent infrastructure.
+this package allows you to easily create your node package with typescript and react with npm infrastructure.
 
-This library works alongside the Decent [minting studio](https://hq.decent.xyz/) allows for DAOs and individuals to run their own decentralized record labels. Arbitrary music NFTs across a wide variety of contract implementations are supported.
+This library works alongside the [metadata checker](https://hq.decent.xyz/) and allows for DAOs and individuals to run their own decentralized record labels. Arbitrary music NFTs across a wide variety of contract implementations are supported.
 
 ![DECENT_AUDIO_PLAYER](https://user-images.githubusercontent.com/23249402/201524220-eaa1c4d4-f24c-409d-9cee-bcaf40c66f0c.gif)
 

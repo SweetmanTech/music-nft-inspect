@@ -1,18 +1,5 @@
-import AudioPlayer from "./audio-player/AudioPlayer";
-import {
-  DispatchPlayerContext,
-  PlayerContext,
-} from "./context/player.context";
-import {
-  playerReducer,
-  playerInitialState
-} from "./reducers/player.reducer"
+import { evaluator as Catalog20220202Evaluator } from "./evaluators/catalog-20220222";
 
 export {
-  // Audio Player
-  AudioPlayer,
-  DispatchPlayerContext,
-  PlayerContext,
-  playerReducer,
-  playerInitialState
+  Catalog20220202Evaluator,
 };

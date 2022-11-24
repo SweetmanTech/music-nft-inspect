@@ -1,24 +1,18 @@
 {
-  "name": "decent-audio-player",
-  "version": "1.0.3",
-  "description": "Decent Audio Player Prototype",
+  "name": "npm-typescript-react-template",
+  "version": "0.0.0",
+  "description": "npm typescript react template",
   "typings": "dist/index.d.ts",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/SweetmanTech/audio-player",
+  "repository": "https://github.com/SweetmanTech/npm-react-typescript-template",
   "author": "sweetman.eth",
   "license": "MIT",
   "private": false,
-  "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
   "dependencies": {
-    "@emotion/css": "^11.1.3",
-    "@types/react": "^18.0.25",
     "tslib": "^2.2.0"
   },
   "devDependencies": {
@@ -26,8 +20,6 @@
     "babel-loader": "^8.2.2",
     "husky": "^6.0.0",
     "prettier": "^2.3.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "typescript": "^4.2.4"
   },
   "lint-staged": {
