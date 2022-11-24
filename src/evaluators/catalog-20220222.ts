@@ -1,4 +1,5 @@
-export const evaluator = () => {
+export const evaluator = (metadataJson: any) => {
+    console.log("metadataJson", metadataJson)
     return {
         matching: [],
         score: 100,
