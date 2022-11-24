@@ -1,6 +1,6 @@
 # ⏯️ music-nft-inspect 🎧
 
-this package allows you to easily verify music nfts with decentralized infrastructure.
+this package allows you to easily verify music nfts.
 
 This library works alongside the [metadata checker](https://hq.decent.xyz/) and allows for DAOs and individuals to compare nft metadata to the top music metadata standards including Catalog, Sound, Decent & more. Arbitrary music NFTs across a wide variety of contract implementations are supported.
 
