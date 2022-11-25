@@ -1,6 +1,5 @@
 const ResultsTable = (props: any) => {
     const {results, setFocus} = props;
-    console.log("RESULTS TABLE PROPS", results)
 
     return (
         <table className="table-auto">

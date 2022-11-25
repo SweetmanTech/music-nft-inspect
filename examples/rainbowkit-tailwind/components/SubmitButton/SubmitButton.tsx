@@ -10,14 +10,12 @@ const SubmitButton = (props: any) => {
         let metadataJson = {};
         try {
             metadataJson = JSON.parse(metadata)
-            console.log("metadata", metadataJson)
             toast.success("⏳ reading your metadata.", {autoClose: 3000})
         } catch(err) {
             toast.error("error parsing JSON")
         }
         const musicMetadata = evaluateCatalog20220202(metadataJson)
         const parsedScores = [{...musicMetadata, name: "Catalog-20220222"}]
-        console.log("response evaluateCatalog20220202", parsedScores)
         onSuccess?.(parsedScores)
     }
 
