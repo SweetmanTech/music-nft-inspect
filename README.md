@@ -22,23 +22,25 @@ yarn add music-nft-inspect
 import { evaluateCatalog20220202 } from "music-nft-inspect";
 
 const metadata = {};
-const { missing, score, match, errors } = evaluateCatalog20220202(metadata);
+const { missing, score, matching } = evaluateCatalog20220202(metadata);
+console.log("missing array", missing);
+console.log("matching array", matching);
+console.log("score", score);
 ```
 
 ### Contributing
 
 If you're from Sound, Catalog, Ooh La La, Spin Amp, Future Tape, Zora, etc, this section is for you.
 
-There are 2 types of modules you can contribute.
+There are a few module types you can contribute to.
 
 #### Evaluators
 
 - evaluators are the method to validate metadata schemas.
+  - `evaluate` method - returns `{missing, matching, score}` given a `metadata` JSON object.
 - examples found in `src/evaluators`
 
-#### Parsers
+#### Schemas
 
-- parse metadata into standard JSON from
-  - `parseContractJson`
-  - `parseTokenUriJson`
-- examples found in `src/parsers`
+- standard metadata JSON for music nfts
+- examples found in `src/schemas`

@@ -1,8 +1,16 @@
-export const evaluator = (metadataJson: any) => {
-    console.log("metadataJson", metadataJson)
+import { compareJson } from "../lib/compareJson"
+import schema from "../schemas/catalog-20220222.json"
+
+export const evaluator = (metadata: any) => {
+    const {matching, missing} = compareJson(metadata, schema)
+    const score = calculateScore(matching.length, missing.length)
     return {
-        matching: [],
-        score: 100,
-        missing: []
+        matching: matching,
+        score: score,
+        missing: missing,
     }
+}
+
+const calculateScore = (add: number, sub: number) => {
+    return (add / (add + sub)).toFixed(4)
 }
