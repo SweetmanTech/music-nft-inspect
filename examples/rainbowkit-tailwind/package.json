@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@infinity-keys/react-lens-share-button": "^0.0.5",
+    "@infinity-keys/react-lens-share-button": "^0.0.6",
     "@rainbow-me/rainbowkit": "^0.7.4",
     "ethers": "^5.0.0",
     "music-nft-inspect": "^0.0.5",
