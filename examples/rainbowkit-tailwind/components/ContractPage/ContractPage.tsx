@@ -8,8 +8,8 @@ import '@infinity-keys/react-lens-share-button/dist/style.css'
 const ContractPage = (props: any) => {
     const [focus, setFocus] = useState();
     const {metadata, chainId, contractAddress} = props
-    console.log("contractAddress", contractAddress)
     const results = evaluate(metadata)
+
     return (
         <div>
             <ResultsTable setFocus={setFocus} results={results}/>
