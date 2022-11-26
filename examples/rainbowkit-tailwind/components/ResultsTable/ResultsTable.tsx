@@ -2,7 +2,7 @@ const ResultsTable = (props: any) => {
     const {results, setFocus} = props;
 
     return (
-        <table className="table-auto">
+        <table className="table-auto w-full text-left">
             <thead className="text-left">
                 <tr>
                     <th>Metadata Format</th>
