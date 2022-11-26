@@ -1,13 +1,39 @@
 import getContract from "../lib/getContract"
 import abi from "../abi/decent721a.json"
 import rendererAbi from "../abi/decentMetadataRenderer.json"
+import { supportedChains } from "../lib/getDefaultProvider"
 
 export const index = async (contractAddress?: string, chainId?: number) => {
     if (!contractAddress) return {}
     const chainIdInt = chainId || 1;
-    const contract = getContract(contractAddress, abi, chainIdInt)
+
     
-    let metadata = await onchainMetadata(contract, chainIdInt)
+    let metadata;
+    if (chainId) {
+        metadata = await getMetadata(contractAddress, chainIdInt)
+    } else {
+        metadata = await checkAllChains(contractAddress)
+    }
+    return metadata
+}
+
+const checkAllChains = async(contractAddress: string) => {
+    let metadata
+    for (let i = 0; i < supportedChains.length; i++) {
+        let chainId = supportedChains[i]
+        try {
+            metadata = await getMetadata(contractAddress, chainId);
+        } catch (err) {
+            console.error(err)
+        }
+        if (metadata) return metadata
+    }
+}
+
+const getMetadata = async(contractAddress: string, chainId: number) => {
+    const contract = getContract(contractAddress, abi, chainId)
+
+    let metadata = await onchainMetadata(contract, chainId)
     if (!Boolean(metadata)) {
         await offchainMetadata(contract)
     }
