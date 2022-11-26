@@ -5,7 +5,7 @@ import ResultsTable from '../ResultsTable';
 import SubmitButton from "../SubmitButton"
 
 const HomePage = () => {
-    const [metadata, setMetadata] = useState({});
+    const [metadata, setMetadata] = useState("");
     const [results, setResults] = useState([]);
     const [focus, setFocus] = useState();
 
