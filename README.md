@@ -16,12 +16,22 @@ This library works alongside the [metadata checker](https://hq.decent.xyz/) and 
 yarn add music-nft-inspect
 ```
 
-2. Evaluate:
+2. Index contract address:
 
 ```tsx
-import { evaluate } from "music-nft-inspect";
+import { index } from "music-nft-inspect";
 
-const metadata = {};
+const chainId = 1;
+const metadata = index(contractAddress, chainId);
+console.log("metadataJson", metadata);
+```
+
+3. Evaluate:
+
+```tsx
+import { evaluate, index } from "music-nft-inspect";
+
+const metadata = index(contractAddress);
 const results = evaluate(metadata);
 console.log("missing array", results[0].missing);
 console.log("matching array", results[0].matching);

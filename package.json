@@ -1,6 +1,6 @@
 {
   "name": "music-nft-inspect",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "verifying music nfts",
   "typings": "dist/index.d.ts",
   "source": "src/index.ts",
@@ -13,7 +13,8 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "tslib": "^2.2.0"
+    "tslib": "^2.2.0",
+    "ethers": "^5.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.14.2",
