@@ -19,7 +19,7 @@ const HomePage = () => {
 
         
         <p className={styles.description}>
-          verify music nfts on any chain 
+          verify music nfts 
         </p>
 
         <div className="flex flex-col gap-4 grid-cols-1 w-full">
