@@ -19,13 +19,13 @@ yarn add music-nft-inspect
 2. Evaluate:
 
 ```tsx
-import { evaluateCatalog20220202 } from "music-nft-inspect";
+import { evaluate } from "music-nft-inspect";
 
 const metadata = {};
-const { missing, score, matching } = evaluateCatalog20220202(metadata);
-console.log("missing array", missing);
-console.log("matching array", matching);
-console.log("score", score);
+const results = evaluate(metadata);
+console.log("missing array", results[0].missing);
+console.log("matching array", results[0].matching);
+console.log("score", results[0].score);
 ```
 
 <img width="823" alt="Screenshot 2022-11-25 at 1 44 07 PM" src="https://user-images.githubusercontent.com/23249402/204039135-6de03f1c-26a0-4fc9-9846-1a4d6c73d789.png">

@@ -1,7 +1,7 @@
 import { compareJson } from "../lib/compareJson"
 import schema from "../schemas/catalog-20220222.json"
 
-export const evaluator = (metadata: any) => {
+export const evaluate = (metadata: any) => {
     const {matching, missing} = compareJson(metadata, schema)
     const score = calculateScore(matching.length, missing.length)
     return {

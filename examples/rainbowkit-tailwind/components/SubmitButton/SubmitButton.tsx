@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import {evaluateCatalog20220202} from "music-nft-inspect"
+import {evaluate} from "music-nft-inspect"
 
 const SubmitButton = (props: any) => {
     const {metadata, onSuccess} = props
@@ -14,9 +14,8 @@ const SubmitButton = (props: any) => {
         } catch(err) {
             toast.error("error parsing JSON")
         }
-        const musicMetadata = evaluateCatalog20220202(metadataJson)
-        const parsedScores = [{...musicMetadata, name: "Catalog-20220222"}]
-        onSuccess?.(parsedScores)
+        
+        onSuccess?.(evaluate(metadataJson))
     }
 
     return (
