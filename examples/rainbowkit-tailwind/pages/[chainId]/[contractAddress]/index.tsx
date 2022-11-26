@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react"
-import ContractPage from "../../../components/ContractPage/ContractPage"
+import ContractPage from "../../../components/ContractPage"
 
 const Page = () => {
     const router = useRouter()
