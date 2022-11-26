@@ -10,7 +10,6 @@ const SubmitButton = (props: any) => {
 
     const indexContract = async() => {
         const metadataJson = await index(metadata);
-        console.log("metadataJson", metadataJson)
         onSuccess?.(evaluate(metadataJson))
     }
 
@@ -27,7 +26,6 @@ const SubmitButton = (props: any) => {
     }
 
     const handleClick = () => {
-        console.log('metadata.indexOf("0x")', metadata.indexOf("0x"))
         if (metadata.indexOf("0x") === 0) {
             indexContract();
         } else {
