@@ -1,7 +1,10 @@
 import { ethers } from 'ethers'
 
-const getDefaultProvider = (chainId: number) => {
-    const ethereumRpc = 'https://rpc.ankr.com/eth'
+const ethereumRpc = 'https://rpc.ankr.com/eth'
+
+export const supportedChains = [1, 5, 137, 80001]
+
+export const getDefaultProvider = (chainId: number) => {
     const goerliRpc = 'https://rpc.ankr.com/eth_goerli'
     const polygonRpc = 'https://polygon-rpc.com'
     const mumbaiRpc = 'https://rpc-mumbai.maticvigil.com'

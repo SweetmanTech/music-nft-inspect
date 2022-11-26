@@ -1,5 +1,5 @@
 import {ethers} from "ethers"
-import getDefaultProvider from "./getDefaultProvider";
+import {getDefaultProvider} from "./getDefaultProvider";
 
 const getContract = (address: string, abi: any, chainId: number) => {
     const provider = getDefaultProvider(chainId);
