@@ -1,13 +1,20 @@
 import { evaluate as evaluateCatalog20220202 } from "./evaluators/catalog-20220222";
+import {index as indexDecent20221126} from "./indexers/decent-20221126";
 
 const evaluate = (metadata: any) => {
   const musicMetadata = evaluateCatalog20220202(metadata)
   const parsedScores = [{...musicMetadata, name: "Catalog-20220222"}]
   return parsedScores
+}
 
+const index = (contractAddress?: any, chainId?: number) => {
+  const metadata = indexDecent20221126(contractAddress, chainId)
+  return metadata
 }
 
 export {
+  index,
+  indexDecent20221126,
   evaluate,
   evaluateCatalog20220202,
 };
