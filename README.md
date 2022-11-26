@@ -40,19 +40,28 @@ console.log("score", results[0].score);
 
 <img width="823" alt="Screenshot 2022-11-25 at 1 44 07 PM" src="https://user-images.githubusercontent.com/23249402/204039135-6de03f1c-26a0-4fc9-9846-1a4d6c73d789.png">
 
-### Contributing
+## Contributing
 
 If you're from Sound, Catalog, Ooh La La, Spin Amp, Future Tape, Zora, etc, this section is for you.
 
 There are a few module types you can contribute to.
+
+- Evaluators - input JSON and return `{matching, missing, score, ...}`.
+- Indexers - read contract methods using `ethers`
+
+Adding a new Evaluator
+
+1. `src/schemas/`
+1. `src/evaluators/`
+1. shared `evaluate()` export in `index.ts`
+
+#### Schemas
+
+- standard metadata JSON for music nfts
+- examples found in `src/schemas`
 
 #### Evaluators
 
 - evaluators are the method to validate metadata schemas.
   - `evaluate` method - returns `{missing, matching, score}` given a `metadata` JSON object.
 - examples found in `src/evaluators`
-
-#### Schemas
-
-- standard metadata JSON for music nfts
-- examples found in `src/schemas`
