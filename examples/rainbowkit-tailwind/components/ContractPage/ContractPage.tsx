@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { evaluate } from "../../../../dist"
+import { evaluate } from "music-nft-inspect"
 import FocusSection from "../FocusSection"
 import ResultsTable from "../ResultsTable"
 import { LensShareButton } from "@infinity-keys/react-lens-share-button";
