@@ -18,15 +18,14 @@ const ContractPage = (props: any) => {
                 </a>
             </h1>
             <div className="flex grid justify-around grid-cols-5 p-3">
-                <div className="col-span-5 lg:col-span-2">
-                    <div>Contract: {contractAddress}</div>
+                <div className="col-span-5 lg:col-span-2 truncate text-ellipsis">
                     <LensShareButton 
                         postBody={`music nft score: 98.6%`}
                         url={`https://musicnftinspect.xyz/${chainId}/${contractAddress}`}
                         preview={true}
                     />
                     <p className="text-xl">Metadata</p>
-                    {JSON.stringify(metadata)}
+                    <pre>{JSON.stringify(metadata, null, 4)}</pre>
                 </div>
                 <div className="text-center border border-500-red col-span-5 lg:col-span-3">
                     <ResultsTable setFocus={setFocus} results={results}/>
