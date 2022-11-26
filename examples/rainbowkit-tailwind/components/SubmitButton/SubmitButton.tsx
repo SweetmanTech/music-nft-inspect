@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import {evaluate} from "music-nft-inspect"
+import {evaluate, index} from "music-nft-inspect"
 
 const SubmitButton = (props: any) => {
     const {metadata, onSuccess} = props
@@ -8,7 +8,13 @@ const SubmitButton = (props: any) => {
     const className = `text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none ${backgroundColor}`
     const buttonText = "Submit";
 
-    const handleClick = () => {
+    const indexContract = async() => {
+        const metadataJson = await index(metadata);
+        console.log("metadataJson", metadataJson)
+        onSuccess?.(evaluate(metadataJson))
+    }
+
+    const indexJson = () => {
         let metadataJson = {};
         try {
             metadataJson = JSON.parse(metadata)
@@ -18,6 +24,16 @@ const SubmitButton = (props: any) => {
         }
         
         onSuccess?.(evaluate(metadataJson))
+    }
+
+    const handleClick = () => {
+        console.log('metadata.indexOf("0x")', metadata.indexOf("0x"))
+        if (metadata.indexOf("0x") === 0) {
+            indexContract();
+        } else {
+            indexJson()
+        }
+        
     }
 
     return (
