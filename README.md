@@ -28,6 +28,8 @@ console.log("matching array", matching);
 console.log("score", score);
 ```
 
+<img width="823" alt="Screenshot 2022-11-25 at 1 44 07 PM" src="https://user-images.githubusercontent.com/23249402/204039135-6de03f1c-26a0-4fc9-9846-1a4d6c73d789.png">
+
 ### Contributing
 
 If you're from Sound, Catalog, Ooh La La, Spin Amp, Future Tape, Zora, etc, this section is for you.
