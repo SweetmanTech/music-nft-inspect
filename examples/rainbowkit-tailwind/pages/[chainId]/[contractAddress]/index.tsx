@@ -10,8 +10,8 @@ const Page = () => {
 
     useEffect(() => {
         const init = async () => {
-            const result = await index(contractAddress ? String(contractAddress) : undefined, Number(chainId))
-            console.log("USE EFFECT RESULT IS JSON?", result)
+            const address = contractAddress ? String(contractAddress) : undefined;
+            const result = await index(address, Number(chainId))
             setMetadata(result)
         }
 
