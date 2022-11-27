@@ -13,7 +13,7 @@ const SubmitButton = (props: any) => {
 
     const indexContract = async() => {
         const metadataJson = await index({ contractAddress: metadata, onPendingIndex});
-        setMetadata(JSON.stringify(metadataJson, false, 4))
+        setMetadata(JSON.stringify(metadataJson, null, 4))
         onSuccess?.(evaluate(metadataJson))
     }
 
