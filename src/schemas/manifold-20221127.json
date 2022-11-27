@@ -1,0 +1,29 @@
+{
+    "name": "Suave - Bad! #1/100",
+    "created_by": "Suave",
+    "external_url": "https://open.spotify.com/track/0abzD9M0pVPd6ArPVfuv1S?si=5693fb2a22b8490f",
+    "description": "The final song on The Vivid Colours In Your Eyes EP. This song encapsulates the colour red in an uptempo Electronic RnB / Trap beat. ",
+    "attributes": [
+      {
+        "trait_type": "Song",
+        "value": "Bad!"
+      }
+    ],
+    "animation_details": {
+      "bytes": 40592298,
+      "format": "WAV",
+      "duration": 230,
+      "sha256": "f63d1322a0384a326f3fbd9340557e245786ab0dd2090693e323c734dd9e2cf8"
+    },
+    "animation": "https://arweave.net/ZZ3KNlbn6LSvIlafjZy0OQ8-f8qSwOSXCshSZvHX8gE",
+    "animation_url": "https://arweave.net/ZZ3KNlbn6LSvIlafjZy0OQ8-f8qSwOSXCshSZvHX8gE",
+    "image_details": {
+      "bytes": 4135566,
+      "format": "JPEG",
+      "sha256": "1890fb428ab917901c69e3d293ff3585492a3bb98f846f76206ee8a022ebc5d5",
+      "width": 3000,
+      "height": 3000
+    },
+    "image": "https://arweave.net/AiPVINu2m395oPhphHo_rfAPjIv-SW42LBhAu3oFD40",
+    "image_url": "https://arweave.net/AiPVINu2m395oPhphHo_rfAPjIv-SW42LBhAu3oFD40"
+  }
