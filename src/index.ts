@@ -3,8 +3,8 @@ import { evaluate as evaluateZora20221126 } from "./evaluators/zora-20221126";
 import { evaluate as evaluateManifold20221127 } from "./evaluators/manifold-20221127";
 import { evaluate as evaluateSoundEdition20220930 } from "./evaluators/sound-edition-20220930";
 import { evaluate as evaluateStandard20220222 } from "./evaluators/standard-20220222";
-
 import {index as indexDecent20221126} from "./indexers/decent-20221126";
+import {index as indexZora20221126} from "./indexers/zora-20221126";
 
 const evaluate = (metadata: any) => {
   const musicMetadata = evaluateStandard20220222(metadata)
@@ -22,14 +22,25 @@ const evaluate = (metadata: any) => {
   return parsedScores
 }
 
-const index = (contractAddress?: any, chainId?: number) => {
-  const metadata = indexDecent20221126(contractAddress, chainId)
+type IndexProps = {
+  contractAddress?: any
+  chainId?: number
+  onPendingIndex?: any
+}
+
+const index = async (props: IndexProps) => {
+  const {contractAddress, chainId, onPendingIndex} = props
+  let metadata = await indexZora20221126(contractAddress, chainId, onPendingIndex)
+  if (!metadata) {
+    metadata = await indexDecent20221126(contractAddress, chainId, onPendingIndex)
+  }
   return metadata
 }
 
 export {
   index,
   indexDecent20221126,
+  indexZora20221126,
   evaluate,
   evaluateCatalog20220202,
   evaluateManifold20221127,
