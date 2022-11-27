@@ -13,7 +13,6 @@ const SubmitButton = (props: any) => {
 
     const indexContract = async() => {
         const metadataJson = await index({ contractAddress: metadata, onPendingIndex});
-        console.log("metadataJson", metadataJson)
         onSuccess?.(evaluate(metadataJson))
     }
 
@@ -30,20 +29,16 @@ const SubmitButton = (props: any) => {
     }
 
     const handleClick = async () => {
-        console.log("CLICKED")
         setLoading("Indexing...");
         if (metadata.indexOf("0x") === 0) {
             await indexContract();
         } else {
             indexJson()
         }
-        console.log("COMPLETE")
         setLoading("")
     }
 
     const onPendingIndex = (name: string, chain: number) => {
-        console.log("name", name)
-        console.log("chain", chain)
         setLoading(`Indexing ${name} on chain id ${chain}`)
     }
 
