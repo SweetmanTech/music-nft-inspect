@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 import Image from 'next/image';
 
 const SubmitButton = (props: any) => {
-    const {metadata, onSuccess} = props
+    const {metadata, onSuccess, setMetadata} = props
     const [loading, setLoading] = useState("")
     const isDisabled = useMemo(() => metadata.length === 0 || Boolean(loading), [loading, metadata.length])
     const backgroundColor = !isDisabled ? `focus:ring-4 focus:ring-blue-300 bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:focus:ring-blue-800 dark:hover:bg-blue-700` : "bg-blue-200 hover:bg-blue-200 dark:bg-blue-200"
@@ -13,6 +13,7 @@ const SubmitButton = (props: any) => {
 
     const indexContract = async() => {
         const metadataJson = await index({ contractAddress: metadata, onPendingIndex});
+        setMetadata(JSON.stringify(metadataJson, false, 4))
         onSuccess?.(evaluate(metadataJson))
     }
 
