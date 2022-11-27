@@ -4,7 +4,6 @@ const ResultsTable = (props: any) => {
     const {results, setFocus} = props;
 
     const getImageSrc = (score: number) => {
-        console.log("SCORE", score)
         if (score == 1) {
             return "/scores/1.jpeg"
         }

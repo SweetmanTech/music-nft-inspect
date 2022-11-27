@@ -3,25 +3,26 @@ import abi from "../abi/decent721a.json"
 import rendererAbi from "../abi/decentMetadataRenderer.json"
 import { supportedChains } from "../lib/getDefaultProvider"
 
-export const index = async (contractAddress?: string, chainId?: number) => {
+export const index = async (contractAddress?: string, chainId?: number, onPendingIndex?: any) => {
     if (!contractAddress) return {}
     const chainIdInt = chainId || 1;
 
-    
     let metadata;
     if (chainId) {
+        onPendingIndex?.("Decent", chainId)
         metadata = await getMetadata(contractAddress, chainIdInt)
     } else {
-        metadata = await checkAllChains(contractAddress)
+        metadata = await checkAllChains(contractAddress, onPendingIndex)
     }
     return metadata
 }
 
-const checkAllChains = async(contractAddress: string) => {
+const checkAllChains = async(contractAddress: string, onPendingIndex?: any) => {
     let metadata
     for (let i = 0; i < supportedChains.length; i++) {
         let chainId = supportedChains[i]
         try {
+            onPendingIndex?.("Decent", chainId)
             metadata = await getMetadata(contractAddress, chainId);
         } catch (err) {
             console.error(err)

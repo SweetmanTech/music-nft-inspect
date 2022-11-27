@@ -11,7 +11,7 @@ const Page = () => {
     useEffect(() => {
         const init = async () => {
             const address = contractAddress ? String(contractAddress) : undefined;
-            const result = await index(address, Number(chainId))
+            const result = await index({contractAddress: address, chainId: Number(chainId)})
             setMetadata(result)
         }
 

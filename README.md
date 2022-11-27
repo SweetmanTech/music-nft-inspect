@@ -49,7 +49,7 @@ There are a few module types you can contribute to.
 - Evaluators - input JSON and return `{matching, missing, score, ...}`.
 - Indexers - read contract methods using `ethers`
 
-Adding a new Evaluator
+### Adding a new Evaluator
 
 1. `src/schemas/`
 1. `src/evaluators/`
@@ -65,3 +65,20 @@ Adding a new Evaluator
 - evaluators are the method to validate metadata schemas.
   - `evaluate` method - returns `{missing, matching, score}` given a `metadata` JSON object.
 - examples found in `src/evaluators`
+
+### Adding a new Indexer
+
+1. `src/abi/`
+1. `src/indexers/`
+1. shared `index()` export in `index.ts`
+
+#### ABI
+
+- standard contract ABI for music nfts
+- examples found in `src/abi`
+
+#### Indexers
+
+- indexers are the method to read contract data and return metadata JSON.
+  - `index` method - returns `{metadataJson}` given a `contractAddress`.
+- examples found in `src/indexers`
