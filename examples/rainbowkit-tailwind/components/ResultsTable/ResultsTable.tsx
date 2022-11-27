@@ -7,10 +7,10 @@ const ResultsTable = (props: any) => {
         if (score == 1) {
             return "/scores/1.jpeg"
         }
-        if (score > 0.8) {
+        if (score >= 0.8) {
             return "/scores/2.jpeg"
         }
-        if (score > 0.5) {
+        if (score >= 0.5) {
             return "/scores/3.jpeg"
         }
         return "/scores/4.png"

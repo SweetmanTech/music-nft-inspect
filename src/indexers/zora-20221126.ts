@@ -20,9 +20,13 @@ const getMetadata = async(contractAddress: string, chainId: number) => {
 }
 
 const onchainMetadata = async (contract: any) => {
-    const base64 = await contract.tokenURI(1);
-    const encoded = base64.substring(base64.indexOf(",") + 1)
-    const decoded = atob(encoded)
-    const json = JSON.parse(decoded)
-    return json
+    try {
+        const base64 = await contract.tokenURI(1);
+        const encoded = base64.substring(base64.indexOf(",") + 1)
+        const decoded = atob(encoded)
+        const json = JSON.parse(decoded)
+        return json
+    } catch (err) {
+        return
+    }
 }
