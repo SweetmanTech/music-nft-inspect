@@ -1,0 +1,79 @@
+{
+    "version": "0.1",
+    "mimeType": "audio/wav",
+    "name": "\"Guaranteez\" by Stockz & chillpill",
+    "title": "\"Guaranteez\" by Stockz & chillpill",
+    "artist": "Stockz, chillpill",
+    "attributes": {
+      "artist": "Stockz, chillpill",
+      "genre": "Hip/Hop",
+      "bpm": 146,
+      "key": "F# minor",
+      "project": "The Decentralized Album Vol. 2",
+      "recordLabel": "DEFI Records"
+    },
+    "description": "Now there's a couple things that I can guarantee...\n\n\"Guaranteez\" by Stockz & chillpill\n\nAn NFT NYC exclusive collaboration",
+    "external_url": "https://opensea.io/collection/the-decentralized-living-album-on-the-blockchain",
+    "genre": "Hip/Hop",
+    "trackNumber": 1,
+    "duration": 131,
+    "bpm": 146,
+    "key": "F# minor",
+    "locationCreated": "New York, NY",
+    "artwork": {
+      "mimeType": "image/jpg",
+      "uri": "ipfs://QmYq1Ji7Ejgome7LHX5Y4zPyLEFcmpHEg19Tr1Jt1Zp2Hj"
+    },
+    "originalReleaseDate": "20221109T000000Z",
+    "recordLabel": "ChillRx",
+    "publisher": "ChillRx",
+    "project": {
+      "title": "\"Guaranteez\" by Stockz & chillpill",
+      "artwork": {
+        "mimeType": "image/jpg",
+        "uri": "ipfs://QmYq1Ji7Ejgome7LHX5Y4zPyLEFcmpHEg19Tr1Jt1Zp2Hj"
+      },
+      "description": "Now there's a couple things that I can guarantee...\n\n\"Guaranteez\" by Stockz & chillpill\n\nAn NFT NYC exclusive collaboration",
+      "type": "Single",
+      "originalReleaseDate": "20221109T000000Z",
+      "recordLabel": "ChillRx",
+      "publisher": "ChillRx"
+    },
+    "image": "ipfs://QmYq1Ji7Ejgome7LHX5Y4zPyLEFcmpHEg19Tr1Jt1Zp2Hj",
+    "animation_url": "ipfs://QmWNaSdhXq2WdusiBcVC2Ju5A1JJySRDVNrQMEBGcaazvC",
+    "losslessAudio": "ipfs://QmWNaSdhXq2WdusiBcVC2Ju5A1JJySRDVNrQMEBGcaazvC",
+    "credits": [
+      {
+        "name": "chillpill",
+        "collaboratorType": "Producer"
+      },
+      {
+        "name": "KAJÉ",
+        "collaboratorType": "Producer"
+      },
+      {
+        "name": "Stockz",
+        "collaboratorType": "Artist"
+      },
+      {
+        "name": "KAJÉ",
+        "collaboratorType": "Mix Engineer"
+      },
+      {
+        "name": "KAJÉ",
+        "collaboratorType": "Master Engineer"
+      },
+      {
+        "name": "Stockz",
+        "collaboratorType": "Songwriter"
+      }
+    ],
+    "tags": [
+      "Guaranteez",
+      "Stockz",
+      "chillpill",
+      "The Decentralized Album Vol. 2",
+      "chillrx",
+      "DEFI Records"
+    ]
+  }
