@@ -2,6 +2,7 @@ import getContract from "../lib/getContract"
 import abi from "../abi/decent721a.json"
 import rendererAbi from "../abi/decentMetadataRenderer.json"
 import { supportedChains } from "../lib/getDefaultProvider"
+import getIpfsLink from "../lib/getIpfsLink"
 
 export const index = async (contractAddress?: string, chainId?: number, onPendingIndex?: any) => {
     if (!contractAddress) return {}
@@ -34,9 +35,16 @@ const checkAllChains = async(contractAddress: string, onPendingIndex?: any) => {
 const getMetadata = async(contractAddress: string, chainId: number) => {
     const contract = getContract(contractAddress, abi, chainId)
 
-    let metadata = await onchainMetadata(contract, chainId)
+    let metadata 
+    try {
+        metadata = await onchainMetadata(contract, chainId)
+    }catch (err) {
+        console.error(err) 
+    }
+    console.log("ONCHAIN", metadata)
+    console.log("trigger?", !Boolean(metadata))
     if (!Boolean(metadata)) {
-        await offchainMetadata(contract)
+        metadata = await offchainMetadata(contract)
     }
     return metadata
 }
@@ -53,5 +61,13 @@ const onchainMetadata = async (contract: any, chainId: number) => {
 
 const offchainMetadata = async (contract: any) => {
     const baseUri = await contract.baseURI();
-    return baseUri
+    console.log("BASE URI OFFCHAIN", baseUri)
+    const ipfsLink = getIpfsLink(baseUri);
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", ipfsLink, false ); // false for synchronous request
+    xmlHttp.send( null );
+    const metadata = xmlHttp.responseText;
+    const json = JSON.parse(metadata)
+    console.log("OFFCHAIN metadata", json)
+    return json
 }
