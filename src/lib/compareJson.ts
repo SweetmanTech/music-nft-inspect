@@ -1,4 +1,5 @@
 export const compareJson = (input: any, expected: any) => {
+    if (!input) return {missing: [], matching: []}
     let expectedSet = new Set(Object.keys(expected))
     let actualSet =  new Set(Object.keys(input)) 
     const difSet = difference(actualSet, expectedSet)
