@@ -5,12 +5,14 @@ import FocusSection from '../FocusSection';
 import ResultsTable from '../ResultsTable';
 import SubmitButton from "../SubmitButton"
 import '@infinity-keys/react-lens-share-button/dist/style.css'
+import {evaluate} from "music-nft-inspect"
 
-const HomePage = () => {
+const HomePage = (props: any) => {
+    const {initialMetadata} = props
     const [metadata, setMetadata] = useState("");
     const [contractAddress, setContractAddress] = useState("")
     const [chainId, setChainId] = useState(0)
-    const [results, setResults] = useState([]);
+    const [results, setResults] = useState([{score: ""}]);
     const [focus, setFocus] = useState();
 
     const handleResults = (r: any) => {
@@ -21,8 +23,18 @@ const HomePage = () => {
       // setChainId(metadataJson.chainId)
     }
 
+    const init = async() => {
+      setMetadata(JSON.stringify(initialMetadata, null, 4))
+      const r = evaluate(initialMetadata)
+      setResults(r)
+    }
+
     useEffect(() => {
       console.log("metadata changed", metadata)
+      console.log("metadata changed", initialMetadata)
+      if (!metadata && initialMetadata.contractAddress) {
+        init()
+      }
       try {
         const metadataJson = JSON.parse(metadata)
         console.log("metadataJson", metadataJson)
@@ -32,7 +44,7 @@ const HomePage = () => {
       // if (metadata.contractAddress) {
       //   setContractAddress(metadata.contractAddress)
       // }
-    }, [metadata])
+    }, [metadata, initialMetadata])
 
     return (
         <main className={styles.main}>
@@ -50,8 +62,8 @@ const HomePage = () => {
         <div className="flex grid flex-col gap-4 grid-cols-1 md:grid-cols-2 w-full">
           <div className="grid-col-1">
             <label htmlFor="json" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your contract address or metadata JSON</label>
-            <textarea id="json" value={metadata} onChange={(e) => setMetadata(e.target.value)} rows={4} className="block col-span-1 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ex. 0xC74e50a1b15394E63ef4fb18d9d65b9563c1e2cD"></textarea>
-            <div>
+            <textarea id="json" value={metadata} onChange={(e) => setMetadata(e.target.value)} rows={initialMetadata ? 12 : 4} className="block col-span-1 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ex. 0xC74e50a1b15394E63ef4fb18d9d65b9563c1e2cD"></textarea>
+            <div className="flex align-center pt-3">
               <SubmitButton onSuccess={handleResults} metadata={metadata} setMetadata={setMetadata} />
 
               {(chainId && contractAddress && results.length > 0) ? <LensShareButton 
