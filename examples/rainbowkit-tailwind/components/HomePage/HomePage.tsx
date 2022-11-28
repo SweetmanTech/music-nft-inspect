@@ -15,14 +15,6 @@ const HomePage = (props: any) => {
     const [results, setResults] = useState([{score: ""}]);
     const [focus, setFocus] = useState();
 
-    const handleResults = (r: any) => {
-      console.log("CONTAINS ADDRESS & CHAIN?", r)
-      setResults(r)
-      // const metadataJson = JSON.parse(metadata)
-      // setContractAddress(metadataJson.contractAddress)
-      // setChainId(metadataJson.chainId)
-    }
-
     const init = async() => {
       setMetadata(JSON.stringify(initialMetadata, null, 4))
       const r = evaluate(initialMetadata)
@@ -30,20 +22,14 @@ const HomePage = (props: any) => {
     }
 
     useEffect(() => {
-      console.log("metadata changed", metadata)
-      console.log("metadata changed", initialMetadata)
       if (!metadata && initialMetadata.contractAddress) {
         init()
       }
       try {
         const metadataJson = JSON.parse(metadata)
-        console.log("metadataJson", metadataJson)
         setContractAddress(metadataJson.contractAddress)
         setChainId(metadataJson.chainId)
       } catch(err) {}
-      // if (metadata.contractAddress) {
-      //   setContractAddress(metadata.contractAddress)
-      // }
     }, [metadata, initialMetadata])
 
     return (
@@ -64,7 +50,7 @@ const HomePage = (props: any) => {
             <label htmlFor="json" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your contract address or metadata JSON</label>
             <textarea id="json" value={metadata} onChange={(e) => setMetadata(e.target.value)} rows={initialMetadata ? 12 : 4} className="block col-span-1 p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ex. 0xC74e50a1b15394E63ef4fb18d9d65b9563c1e2cD"></textarea>
             <div className="flex align-center pt-3">
-              <SubmitButton onSuccess={handleResults} metadata={metadata} setMetadata={setMetadata} />
+              <SubmitButton onSuccess={(r: any) => setResults(r)} metadata={metadata} setMetadata={setMetadata} />
 
               {(chainId && contractAddress && results.length > 0) ? <LensShareButton 
                 postBody={`music nft score: ${Number(results[0]["score"]) * 100}%`}
