@@ -6,15 +6,23 @@ import Image from 'next/image';
 const SubmitButton = (props: any) => {
     const {metadata, onSuccess, setMetadata} = props
     const [loading, setLoading] = useState("")
-    const isDisabled = useMemo(() => metadata.length === 0 || Boolean(loading), [loading, metadata.length])
+    const isDisabled = useMemo(() => metadata?.length === 0 || Boolean(loading), [loading, metadata?.length])
     const backgroundColor = !isDisabled ? `focus:ring-4 focus:ring-blue-300 bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:focus:ring-blue-800 dark:hover:bg-blue-700` : "bg-blue-200 hover:bg-blue-200 dark:bg-blue-200"
     const className = `text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none ${backgroundColor}`
     const buttonText = "Submit";
 
     const indexContract = async() => {
         const metadataJson = await index({ contractAddress: metadata, onPendingIndex});
+        console.log("metadataJson", metadataJson)
+        if (!metadataJson) {
+            toast.error("contract type not indexed.")
+            toast.error(<a href="https://github.com/SweetmanTech/music-nft-inspect/issues" target="_blank" rel="noreferrer">please submit an issue here</a>)
+            toast.error(<a href="https://twitter.com/sweetman_eth" target="_blank" rel="noreferrer">or reach out to sweetman.eth.</a>)
+            return
+        }
         setMetadata(JSON.stringify(metadataJson, null, 4))
         onSuccess?.(evaluate(metadataJson))
+        toast.success("scored")
     }
 
     const indexJson = () => {
@@ -31,7 +39,7 @@ const SubmitButton = (props: any) => {
 
     const handleClick = async () => {
         setLoading("Indexing...");
-        if (metadata.indexOf("0x") === 0) {
+        if (metadata?.indexOf("0x") === 0) {
             await indexContract();
         } else {
             indexJson()
