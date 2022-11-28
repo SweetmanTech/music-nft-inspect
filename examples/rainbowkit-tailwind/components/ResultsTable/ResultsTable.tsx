@@ -26,7 +26,7 @@ const ResultsTable = (props: any) => {
                 </tr>
             </thead>
             <tbody>
-                {results.map((result: any) => (
+                {results[0].name && results.map((result: any) => (
                     <tr key={result.name}>
                         <td>{result.name}</td>
                         <td className="cursor-pointer" onClick={() => setFocus(["MATCHING", ...result?.matching, "MISSING", ...result?.missing])}>

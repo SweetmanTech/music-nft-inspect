@@ -46,6 +46,10 @@ const getMetadata = async(contractAddress: string, chainId: number) => {
     if (!Boolean(metadata)) {
         metadata = await offchainMetadata(contract)
     }
+    if (metadata) {
+        metadata.contractAddress = contractAddress
+        metadata.chainId = chainId
+    }
     return metadata
 }
 
