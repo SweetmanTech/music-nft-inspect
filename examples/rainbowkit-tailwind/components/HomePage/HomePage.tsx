@@ -22,7 +22,7 @@ const HomePage = (props: any) => {
     }
 
     useEffect(() => {
-      if (!metadata && initialMetadata.contractAddress) {
+      if (!metadata && initialMetadata?.contractAddress) {
         init()
       }
       try {
