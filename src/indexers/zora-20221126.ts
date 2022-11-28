@@ -9,7 +9,10 @@ export const index = async (contractAddress?: string, chainId?: number, onPendin
 
     onPendingIndex?.("Zora", chainIdInt)
     metadata = await getMetadata(contractAddress, chainIdInt)
-
+    if (metadata) {
+        metadata.contractAddress = contractAddress
+        metadata.chainId = chainId
+    }
     return metadata
 }
 
